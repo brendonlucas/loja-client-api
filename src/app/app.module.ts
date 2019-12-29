@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { VendasComponent } from './vendas/vendas.component';
-import { Routes } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule  } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ProdutosService } from './produtos.service';
+import { ProdutoDetailComponent } from './produto-detail/produto-detail.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,13 +18,13 @@ const appRoutes: Routes = [
 
 ];
 
-
 @NgModule({
   declarations: [
     AppComponent,
     ProdutosComponent,
     VendasComponent,
-    HomeComponent
+    HomeComponent,
+    ProdutoDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [ProdutosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

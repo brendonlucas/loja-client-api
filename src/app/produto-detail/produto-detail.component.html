@@ -1,0 +1,50 @@
+
+<div class="box-list list-inline-item box-middle" style="height: max-content;"> 
+  <h3> {{ produto['name'] }}</h3>
+  <div class="media " style="height: 500px; height: max-content;" >
+    <img src="https://images1.kabum.com.br/produtos/fotos/49841/49841_1507735187_index_gg.jpg" width="500px" height="auto"> 
+    <div style=" width: 200px; background-color: #353535;" >
+      <p style=" color:#45ed27; font-weight: bold; font-size: 40px;"> R${{ produto['preco'] }} </p>
+      <p style="font-size: 22px; color:#45ed27 ;">
+      <img src="https://i.ibb.co/9YBcC2j/icone2.png" width="30" height="30" alt="asda"> {{produto['quantidade']}} Unidades
+      </p>
+      <form class="">
+        <label for="qtd" style="color:#2fa51a; font-weight: bold; font-size: 22px;"> Quantidade vendida</label>
+        <input id="qtd" type="" name="quantidade" style="width: 100px; border-radius: 5px;"><br><br>
+        <button class="btn btn-primary btn-lg bt-comp" type="submit"> Criar venda</button>
+        
+      </form>     
+      <br>
+      <a class="btn btn-primary btn-lg" style="background-color: #ed2727; color:#353535; font-weight: bold; width: 187px;" href="#"> Remover </a>
+      <br>
+      <br>
+
+
+      <div ng-app="">
+
+        <label for="toggle-1" class="leo btn btn-primary btn-lg bt-comp"> Editar </label>
+        <input id="toggle-1" type="checkbox">
+
+        <form style="text-align: left; padding: 5px;" ng-hide="myVar" id="mostra" >
+          <hr>
+          <label for="name" style=" color: white;"> Nome:</label>
+          <input class="form-control" type="text" id="name" value="{{produto['name']}}">
+          <label for="qtd" style=" color: white;"> Quantidade: </label>
+          <input class="form-control" type="number" min="0" id="qtd" value="{{produto['quantidade']}}">
+          <label for="preco" style=" color: white;"> Preco: </label>
+          <input class="form-control" type="number" min="0" id="preco" value="{{produto['preco']}}">
+          <br>
+          <div style="text-align: center;"> 
+            <button class="btn btn-lg btn-primary" type="submit"> Confirmar </button>
+          </div>
+          <hr>
+        </form>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+  <h3> Descrição: </h3>
+  <p> Produto novo e nem usado. pronto para seu uso</p>
+</div>
+
