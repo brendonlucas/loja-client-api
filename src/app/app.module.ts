@@ -10,6 +10,7 @@ import { Routes, RouterModule  } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProdutosService } from './produtos.service';
 import { ProdutoDetailComponent } from './produto-detail/produto-detail.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

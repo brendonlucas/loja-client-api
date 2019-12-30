@@ -17,5 +17,15 @@ export class ProdutosService {
 
   getProduto(id: number): Observable<any> {
     return this.http.get<any[]>(this.produtosListUrl + id + '/');
+    
   }
+
+  putProduto(id:number, produto: any){
+    return this.http.put(this.produtosListUrl + id + '/', produto)
+
+  }
+  deleteProduto(id:number){
+    return this.http.delete(this.produtosListUrl + id + '/')
+  }
+  
 }
