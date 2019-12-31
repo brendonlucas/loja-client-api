@@ -17,7 +17,10 @@ export class ProdutosService {
 
   getProduto(id: number): Observable<any> {
     return this.http.get<any[]>(this.produtosListUrl + id + '/');
-    
+  }
+
+  searchProduto(nome_produto: any){
+    return this.http.get<any[]>(this.produtosListUrl + "?search=" + nome_produto);
   }
 
   postProduto(produto: any){
@@ -32,5 +35,6 @@ export class ProdutosService {
   deleteProduto(id:number){
     return this.http.delete(this.produtosListUrl + id + '/')
   }
+
   
 }

@@ -12,6 +12,7 @@ import { ProdutosService } from './produtos.service';
 import { ProdutoDetailComponent } from './produto-detail/produto-detail.component';
 import { FormsModule } from '@angular/forms';
 import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

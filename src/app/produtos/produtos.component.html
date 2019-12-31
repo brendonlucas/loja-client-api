@@ -1,17 +1,48 @@
-<div style="background-color: #f4f4f4; padding: 20px;">
-  <h2 style="color: #353535;">Listagem dos produtos </h2>
+<div style="background-color: #f4f4f4; padding: 10px;">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" style="color: #353535; font-size: 30px; font-weight: bold;">Listagem dos produtos</a>
+    <form autocomplete="on" class="form-inline" method="POST" #frmB="ngForm"
+      (ngSubmit)="buscarProduto(frmB.value.search)">
+      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Procurar" aria-label="Search"
+        [(ngModel)]="busca" required>
+      <button [disabled]="frmB.invalid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+    </form>
+  </nav>
 </div>
 
-<div class="box-list list-inline-item box-middle"> 
-  <li *ngFor="let produto of produtos" class="media item-preview " style="background-color: #ffffff; width: 100%; min-width: 700px; border-bottom: 1px solid rgb(44, 44, 44); ">
-      <img src="https://images1.kabum.com.br/produtos/fotos/49841/49841_1507735187_index_gg.jpg" alt="" class="mr-3" width="150">
-      <div class="media-body" style="min-width: 200px;">
-          <a routerLink="/produto/detail/{{produto['pk']}}" style="text-align: left;" href="#"><h5>{{produto['name']}}</h5> </a>
-          <p style="text-align: left; font-size: 22px;"><img src="https://i.ibb.co/nPtR2gg/icone1.png" width="30" height="30" alt="asda"> {{ produto['quantidade'] }} Unidade</p>
-      </div>
-      <div style="background-color: #424242; width:210px; height: 150px; padding: 5px; text-align: center;"> 
-          <p style="margin-top: 30px; color:#45ed27; font-weight: bold; font-size: 40px;"> R$ {{ produto['preco'] }} </p>
-      </div>
+<div class="box-list list-inline-item box-middle" *ngIf="produtos.length > 0; else elseBlock">
+  <li *ngFor="let produto of produtos | paginate: { itemsPerPage: count, currentPage: p }" class="media item-preview "
+    style="background-color: #ffffff; width: 100%; min-width: 700px; border-bottom: 1px solid rgb(44, 44, 44); ">
+    <img src="https://images1.kabum.com.br/produtos/fotos/49841/49841_1507735187_index_gg.jpg" alt="" class="mr-3"
+      width="150">
+    <div class="media-body" style="min-width: 200px;">
+      <a routerLink="/produto/detail/{{produto['pk']}}" style="text-align: left;" href="#">
+        <h5>{{produto['name']}}</h5>
+      </a>
+      <p style="text-align: left; font-size: 22px;"><img src="https://i.ibb.co/nPtR2gg/icone1.png" width="30"
+          height="30" alt="asda"> {{ produto['quantidade'] }} Unidade</p>
+    </div>
+    <div style="background-color: #424242; width:210px; height: 150px; padding: 5px; text-align: center;">
+      <p style="margin-top: 30px; color:#45ed27; font-weight: bold; font-size: 40px;"> R$ {{ produto['preco'] }} </p>
+    </div>
   </li>
 
+  <div class="text-right" style="margin-top: 20px;" *ngIf="produtos.length > 0">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
 </div>
+
+
+<ng-template #elseBlock>
+  <div class="box-list list-inline-item box-middle" style="width: 50%">
+    <p style="font-weight: bold; font-size: 30px;"> Sem Produtos </p>
+  </div>
+</ng-template>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

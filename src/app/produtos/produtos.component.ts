@@ -9,11 +9,19 @@ import { ProdutosService } from '../produtos.service'
 export class ProdutosComponent implements OnInit {
 
   produtos : Array<any>;
+  busca: any;
+  p : Number = 1 ;
+  count : Number = 5;
 
-  constructor(private produtosService: ProdutosService) { }
+  constructor(private produtosService: ProdutosService) { this.produtos}
 
   ngOnInit() {
     this.listar()
+  }
+
+  buscarProduto(frmB :any){
+    const name = frmB
+    this.produtosService.searchProduto(name).subscribe(data => this.produtos = data)
   }
 
   listar(){
