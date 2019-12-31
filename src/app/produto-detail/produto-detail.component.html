@@ -11,7 +11,7 @@
       </p>
       <form method="POST" #frmV="ngForm" (ngSubmit)="postVenda(frmV)">
         <label for="qtd" style="color:#2fa51a; font-weight: bold; font-size: 22px;"> Quantidade vendida</label>
-        <input id="qtd" min=1 type="number" name="quantidade" [(ngModel)]="vendaquantidade" style="width: 100px; border-radius: 5px;" required><br><br>
+        <input id="qtd" min="1" max="{{produto.quantidade}}" type="number" name="quantidade" [(ngModel)]="vendaquantidade" style="width: 100px; border-radius: 5px;" required><br><br>
         <div>
           <button [disabled]="frmV.invalid" class="btn  btn-lg bt-comp" type="submit"> Criar venda</button>
         </div>
