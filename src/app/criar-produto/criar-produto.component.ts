@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutosService } from '../produtos.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,6 +14,9 @@ export class CriarProdutoComponent implements OnInit {
   router: Router;
   idNovoProduto: any;
   mensagem: any;
+  file: Set<File>;
+
+  
 
   constructor(private produtoService: ProdutosService,
     router: Router, private route: ActivatedRoute,
@@ -21,11 +24,20 @@ export class CriarProdutoComponent implements OnInit {
 
   ngOnInit() {
     this.novoProduto = {}
+   
   }
 
+  onChange(event: any){
+    console.log(event)
+    this.file = new Set();
+    const fileSelected = <FileList>event.srcElement.files;
+    document.getElementById('fileLabel').innerHTML = fileSelected[0].name;
+    this.file.add(fileSelected[0])
+    
+  }
+  
   postProduto(frmP: FormGroup) {
-
-    this.produtoService.postProduto(this.novoProduto).subscribe(resposta => this.idNovoProduto = resposta);
+    this.produtoService.postProduto(this.novoProduto, this.file).subscribe(resposta => this.idNovoProduto = resposta);
     this.mensagem = this.novoProduto.name + " adicionado com sucesso!"
  
 

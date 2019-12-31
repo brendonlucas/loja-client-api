@@ -1,7 +1,7 @@
 <div class="box-list list-inline-item box-middle" style="height: max-content;">
   <h3> {{ produto['name'] }}</h3>
   <div class="media " style="height: 500px; height: max-content;">
-    <img src="https://images1.kabum.com.br/produtos/fotos/49841/49841_1507735187_index_gg.jpg" width="500px"
+    <img src="{{produto.file}}" width="500px"
       height="auto">
     <div style=" width: 200px; background-color: #353535;">
       <p style=" color:#45ed27; font-weight: bold; font-size: 40px;"> R${{ produto['preco'] }} </p>
