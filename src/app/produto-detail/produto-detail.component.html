@@ -1,6 +1,5 @@
 <div class="box-list list-inline-item box-middle" style="height: max-content;">
   <h3> {{ produto['name'] }}</h3>
-  <p>Value: {{ produto.name }}</p>
   <div class="media " style="height: 500px; height: max-content;">
     <img src="https://images1.kabum.com.br/produtos/fotos/49841/49841_1507735187_index_gg.jpg" width="500px"
       height="auto">
@@ -10,11 +9,12 @@
         <img src="https://i.ibb.co/9YBcC2j/icone2.png" width="30" height="30" alt="asda"> {{produto['quantidade']}}
         Unidades
       </p>
-      <form class="">
+      <form method="POST" #frmV="ngForm" (ngSubmit)="postVenda(frmV)">
         <label for="qtd" style="color:#2fa51a; font-weight: bold; font-size: 22px;"> Quantidade vendida</label>
-        <input id="qtd" type="" name="quantidade" style="width: 100px; border-radius: 5px;"><br><br>
-        <button class="btn btn-primary btn-lg bt-comp" type="submit"> Criar venda</button>
-
+        <input id="qtd" min=1 type="number" name="quantidade" [(ngModel)]="vendaquantidade" style="width: 100px; border-radius: 5px;" required><br><br>
+        <div>
+          <button [disabled]="frmV.invalid" class="btn  btn-lg bt-comp" type="submit"> Criar venda</button>
+        </div>
       </form>
       <br>
       <button (click)="deleteProduto()" class="btn btn-primary btn-lg"

@@ -11,11 +11,13 @@ import { HomeComponent } from './home/home.component';
 import { ProdutosService } from './produtos.service';
 import { ProdutoDetailComponent } from './produto-detail/produto-detail.component';
 import { FormsModule } from '@angular/forms';
+import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produtos-list', component: ProdutosComponent },
   { path: 'vendas-list', component: VendasComponent },
+  { path: 'add-produto', component: CriarProdutoComponent},
 
 ];
 
@@ -25,7 +27,9 @@ const appRoutes: Routes = [
     ProdutosComponent,
     VendasComponent,
     HomeComponent,
-    ProdutoDetailComponent
+    CriarProdutoComponent,
+    ProdutoDetailComponent,
+    CriarProdutoComponent
   ],
   imports: [
     BrowserModule,

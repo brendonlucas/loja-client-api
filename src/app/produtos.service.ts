@@ -20,6 +20,11 @@ export class ProdutosService {
     
   }
 
+  postProduto(produto: any){
+    return this.http.post(this.produtosListUrl, produto)
+
+  }
+
   putProduto(id:number, produto: any){
     return this.http.put(this.produtosListUrl + id + '/', produto)
 
