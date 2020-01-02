@@ -13,13 +13,17 @@ import { ProdutoDetailComponent } from './produto-detail/produto-detail.componen
 import { FormsModule } from '@angular/forms';
 import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './login/auth.service';
+import { LogoutComponent } from './logout/logout.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produtos-list', component: ProdutosComponent },
   { path: 'vendas-list', component: VendasComponent },
   { path: 'add-produto', component: CriarProdutoComponent},
-
+  { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent},
 ];
 
 @NgModule({
@@ -30,7 +34,9 @@ const appRoutes: Routes = [
     HomeComponent,
     CriarProdutoComponent,
     ProdutoDetailComponent,
-    CriarProdutoComponent
+    CriarProdutoComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [ProdutosService],
+  providers: [ProdutosService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

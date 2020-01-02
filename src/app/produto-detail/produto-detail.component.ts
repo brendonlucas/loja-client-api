@@ -15,7 +15,7 @@ export class ProdutoDetailComponent implements OnInit {
   produto: any;
   newDadosProduto: any;
   labelProduto: any;
-
+  dados = localStorage
   router: Router;
 
   constructor(

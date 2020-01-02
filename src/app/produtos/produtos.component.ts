@@ -12,6 +12,7 @@ export class ProdutosComponent implements OnInit {
   busca: any;
   p : Number = 1 ;
   count : Number = 5;
+  dados = localStorage
 
   constructor(private produtosService: ProdutosService) { this.produtos}
 

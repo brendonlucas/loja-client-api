@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'loja-client-api';
+  dados = localStorage
+  
 }

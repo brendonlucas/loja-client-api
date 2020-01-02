@@ -11,6 +11,7 @@ export class VendasComponent implements OnInit {
   vendas: Array<any>
   p : Number = 1 ;
   count : Number = 5;
+  dados = localStorage
 
   constructor(private vendasService: VendaService) {this.vendas }
 

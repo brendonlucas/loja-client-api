@@ -1,0 +1,38 @@
+.box-middle {
+    background-color: #2e2e2e;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+ }
+
+ .bt-comp{
+    background-color: #45ed27;
+     color:#353535;
+      font-weight: bold;
+    width: 187px;
+
+ }
+
+/* Checkbox Hack */
+#toggle-1 {
+    display:none;
+ }
+ 
+ .leo { 
+   -webkit-appearance: push-button;
+   -moz-appearance: button; 
+   display: inline-block;
+   cursor: pointer;
+   padding: 5px;
+ }
+ 
+ /* CSS padrão da div */
+ #mostra {
+    display:none;
+ }
+ 
+ /* CSS quando o checkbox está marcado */
+ #toggle-1:checked ~ #mostra {
+    display:block;
+ }

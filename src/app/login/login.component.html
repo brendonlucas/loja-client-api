@@ -1,0 +1,21 @@
+<div class="box-list list-inline-item box-middle" style="height: max-content; width: 400px;">
+  <h2 style="font-weight: bold;">Acessar</h2>
+  <form style="text-align: left; padding: 5px;" method="POST" #frmL="ngForm">
+    <hr>
+    <label for="username" style=" color: rgb(0, 0, 0);"> Usuario:</label>
+    <input class="form-control" type="text" id="username" name="username" [(ngModel)]="usuario.username" required>
+    <label for="password" style=" color: rgb(0, 0, 0);"> Senha: </label>
+    <input class="form-control" type="password" id="password" name="password" [(ngModel)]="usuario.password"
+      required>
+    <br>
+    <hr>
+    <div style="text-align: center;">
+      <button [disabled]="frmL.invalid" class="btn btn-lg btn-primary" type="submit" (click)="login()"> Entrar</button>
+    </div>
+  </form>
+  <p ([ngModel])="mensagem" id="mensagem" style="font-size: 17px; color: rgb(255, 0, 0); font-weight: bold;">{{ mensagem }} </p>
+  
+  
+  
+</div>
+
