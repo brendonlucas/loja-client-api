@@ -1,0 +1,25 @@
+<div style="background-color: #f4f4f4; padding: 10px;">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" style="color: #353535; font-size: 30px; font-weight: bold;">Listagem dos Funcionarios</a>
+    <div class="form-inline">
+      <button class="btn btn-lg btn-outline-success my-2 my-sm-0" type="submit" routerLink="/add-funcionario">
+        <img src="https://cdn.pixabay.com/photo/2017/07/11/13/56/user-2493635_960_720.png" alt="" class="mr-3"
+          width="35px">
+        Adicionar funcionario
+      </button>
+    </div>
+  </nav>
+</div>
+
+<ul class="box-list list-inline-item box-middle" >
+  <li class="media item-preview item-style" *ngFor="let funcionario of funcionarios">
+    <img src="https://cdn.pixabay.com/photo/2017/02/25/22/04/user-icon-2098873_960_720.png" class="mr-3" width="150">
+    <div class="media-body" style="min-width: 200px;">
+      <p style="text-align: left; font-weight: bold; font-size: 20px;">{{ funcionario.name }}</p>
+      <p style="text-align: left; font-size: 18px;"> Contato: {{funcionario.telefone}} </p>
+      <p style="text-align: left; font-size: 18px;"> CPF: {{ funcionario.cpf }} </p>
+    </div>
+  </li>
+</ul>
+
+

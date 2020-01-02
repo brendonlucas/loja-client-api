@@ -4,7 +4,6 @@
       vendas </p>
   </div>
 </div>
-asda
 <div class="box-list list-inline-item box-middle" *ngIf="vendas.length > 0; else elseBlock">
   <li *ngFor="let venda of vendas | paginate: { itemsPerPage: count, currentPage: p }" class="media item-preview "
     style="background-color: #ffffff; width: 100%; min-width: 700px; border-bottom: 1px solid rgb(44, 44, 44); ">

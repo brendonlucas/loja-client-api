@@ -22,6 +22,11 @@
           <a routerLink="/add-produto" routerLinkActive="active" class="nav-link" *ngIf="dados.length > 0"
             style="font-weight: bold; font-size: 27px; color: rgb(0, 0, 0);">Add Produto</a>
         </li>
+
+        <li class="nav-item">
+          <a routerLink="/funcionarios" routerLinkActive="active" class="nav-link" *ngIf="dados.length > 0"
+            style="font-weight: bold; font-size: 27px; color: rgb(0, 0, 0);">Funcionarios</a>
+        </li>
       </ul>
 
       <a routerLink="/login" routerLinkActive="active" class="nav-link" *ngIf="dados.length == 0; else elseBlock"

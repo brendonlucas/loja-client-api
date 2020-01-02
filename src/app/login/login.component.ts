@@ -33,14 +33,10 @@ export class LoginComponent implements OnInit {
         console.log(success),
         localStorage.setItem('currentUserName', success['name']);
         localStorage.setItem('currentUserToken', success['token']);
-        console.log(localStorage['currentUserToken'])
-        console.log(localStorage['currentUserName'])
         this.router.navigate(['/'])
       },
       error => {
         console.log(error);
-        console.log(localStorage['currentUserToken'])
-        console.log(localStorage['currentUserName'])
         document.getElementById('mensagem').innerHTML = "Usuario não encontrado";
       }
     )

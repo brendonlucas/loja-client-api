@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './guards/auth.guard';
+import { FuncionarioComponent } from './funcionario/funcionario.component';
+import { CriarFuncionarioComponent } from './criar-funcionario/criar-funcionario.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +27,8 @@ const appRoutes: Routes = [
   { path: 'add-produto', component: CriarProdutoComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]},
+  { path: 'funcionarios', component: FuncionarioComponent, canActivate: [AuthGuard]},
+  { path: 'add-funcionario', component: CriarFuncionarioComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
@@ -37,7 +41,9 @@ const appRoutes: Routes = [
     ProdutoDetailComponent,
     CriarProdutoComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    FuncionarioComponent,
+    CriarFuncionarioComponent
   ],
   imports: [
     BrowserModule,
