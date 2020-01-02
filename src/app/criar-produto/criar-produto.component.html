@@ -3,18 +3,25 @@
   <form style="text-align: left; padding: 5px;" method="POST" #frmP="ngForm" (ngSubmit)="postProduto(frm)">
     <hr>
     <label for="name" style=" color: rgb(0, 0, 0);"> Nome:</label>
-    <input class="form-control" type="text" id="name" name="name" [(ngModel)]="novoProduto.name" required>
+    <input class="form-control animate-hover" type="text" id="name" name="name" [(ngModel)]="novoProduto.name" required>
+
     <label for="qtd" style=" color: rgb(0, 0, 0);"> Quantidade: </label>
-    <input class="form-control" type="number" min="0" id="qtd" name="quantidade" [(ngModel)]="novoProduto.quantidade"
+    <input class="form-control animate-hover" type="number" min="0" id="qtd" name="quantidade" [(ngModel)]="novoProduto.quantidade"
       required>
+
     <label for="preco" style=" color: rgb(0, 0, 0);"> Preco: </label>
-    <input class="form-control" type="number" min="1" id="preco" name="preco" [(ngModel)]="novoProduto.preco" required>
+    <input class="form-control animate-hover" type="number" min="1" id="preco" name="preco" [(ngModel)]="novoProduto.preco" required>
     <br>
-    <div class="custom-file">
-        <input type="file" class="file-input" id="file" name="file" (change)="onChange($event)" [(ngModel)]="novoProduto.file" required>
-        <label class="custom-file-label" for="file" id="fileLabel" >Escolha um imagem</label>
-      </div>
-      
+
+    <div class="custom-file animate-hover">
+      <input type="file" class="file-input" id="file" name="file" (change)="onChange($event)" [(ngModel)]="novoProduto.file" required>
+      <label class="custom-file-label" for="file" id="fileLabel" >Escolha uma imagem</label>
+    </div>
+
+    <label for="preco" style=" color: rgb(0, 0, 0);"> Descrição: </label>
+    <textarea style="min-height: 100px;" class="form-control animate-hover" type="text" id="descricao" name="descricao" [(ngModel)]="novoProduto.descricao" required>
+    </textarea>
+    <br>
     <br>
     <hr>
     <div style="text-align: center;">

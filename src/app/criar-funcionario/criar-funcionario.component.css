@@ -5,3 +5,15 @@
     padding: 10px;
     margin-top: 10px;
  }
+
+
+ .animate-hover{
+    position:relative;
+    top:0;
+    padding:4px;
+    transition: all .2s ease-in-out
+ }
+ .animate-hover:hover{
+     top:-9px;
+     box-shadow:0 4px 3px #999
+ }

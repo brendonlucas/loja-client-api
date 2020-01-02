@@ -5,10 +5,8 @@
   </div>
 </div>
 <div class="box-list list-inline-item box-middle" *ngIf="vendas.length > 0; else elseBlock">
-  <li *ngFor="let venda of vendas | paginate: { itemsPerPage: count, currentPage: p }" class="media item-preview "
-    style="background-color: #ffffff; width: 100%; min-width: 700px; border-bottom: 1px solid rgb(44, 44, 44); ">
-    <img src="{{venda.produto.file}}" alt="" class="mr-3"
-      width="150">
+  <li *ngFor="let venda of vendas | paginate: { itemsPerPage: count, currentPage: p }" class="animate-hover item-card media item-preview ">
+    <img src="{{venda.produto.file}}" alt="" class="mr-3 img-sombra" width="150">
     <div class="media-body" style="min-width: 200px;">
       <a routerLink="/produto/detail/{{venda.produto.id}}" style="text-align: left;" href="#">
         <h5>{{venda.produto.name}}</h5>

@@ -31,6 +31,7 @@ export class ProdutosService {
     formData.append('name',produto['name'])
     formData.append('quantidade', produto['quantidade'])
     formData.append('preco',produto['preco'])
+    formData.append('descricao',produto['descricao'])
     
     return this.http.post(this.produtosListUrl, formData)
 
