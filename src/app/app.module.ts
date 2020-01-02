@@ -16,14 +16,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produtos-list', component: ProdutosComponent },
-  { path: 'vendas-list', component: VendasComponent },
-  { path: 'add-produto', component: CriarProdutoComponent},
+  { path: 'vendas-list', component: VendasComponent , canActivate: [AuthGuard]},
+  { path: 'add-produto', component: CriarProdutoComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
-  { path: 'logout', component: LogoutComponent},
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [ProdutosService, AuthService],
+  providers: [ProdutosService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
