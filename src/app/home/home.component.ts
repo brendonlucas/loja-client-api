@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutosService } from '../produtos.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   dados = localStorage
-  constructor() { }
+  produtos: any;
+
+  constructor(private produtosService: ProdutosService) { }
 
   ngOnInit() {
+    this.getProdutos()
+  }
+
+  getProdutos(){
+    this.produtosService.listar().subscribe(data=>this.produtos = data)
   }
 
 }
