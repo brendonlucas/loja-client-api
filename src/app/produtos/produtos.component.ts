@@ -29,4 +29,6 @@ export class ProdutosComponent implements OnInit {
     this.produtosService.listar().subscribe(data=>this.produtos = data)
   }
 
+  
+
 }

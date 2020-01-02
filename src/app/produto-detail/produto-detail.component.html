@@ -9,12 +9,15 @@
         Unidades
       </p>
       <div *ngIf="dados.length > 0">
-        <form method="POST" #frmV="ngForm" (ngSubmit)="postVenda(frmV)" *ngIf="dados.length > 0">
-          <label for="qtd" style="color:#2fa51a; font-weight: bold; font-size: 22px;"> Quantidade vendida</label>
-          <input id="qtd" min="1" max="{{produto.quantidade}}" type="number" name="quantidade"
-            [(ngModel)]="vendaquantidade" style="width: 100px; border-radius: 5px;" required><br><br>
+        <form method="POST" #frmV="ngForm" (ngSubmit)="postVenda()" *ngIf="dados.length > 0">
+          <label for="quantidade" style="color:#2fa51a; font-weight: bold; font-size: 22px;"> Quantidade a ser
+            vendida</label>
+          <input id="quantidade" min="1" max="{{produto['quantidade']}}" type="number" name="quantidade"
+            [(ngModel)]="venda.quantidade" style="width: 100px; border-radius: 5px;" required><br><br>
           <div>
-            <button [disabled]="frmV.invalid" class="btn  btn-lg bt-comp" type="submit"> Criar venda</button>
+            <button
+              [disabled]="frmV.invalid || 0 >= frmV.value.quantidade || 0 == produto['quantidade'] || frmV.value.quantidade > produto['quantidade']"
+              class="btn  btn-lg bt-comp" type="submit"> Criar venda</button>
           </div>
         </form>
         <br>
@@ -30,11 +33,10 @@
             (ngSubmit)="putProduto(frm)">
             <hr>
             <label for="name" style=" color: white;"> Nome:</label>
-            <input class="form-control" type="text" id="name" name="name" [(ngModel)]="produto.name" required
-              value="{{produto['name']}}">
+            <input class="form-control" type="text" id="name" name="name" [(ngModel)]="produto.name" required>
             <label for="qtd" style=" color: white;"> Quantidade: </label>
-            <input class="form-control" type="number" min="0" id="qtd" value="{{produto['quantidade']}}"
-              name="quantidade" [(ngModel)]="produto.quantidade" required>
+            <input class="form-control" type="number" min="0" id="qtd" name="quantidade"
+              [(ngModel)]="produto.quantidade" required>
             <label for="preco" style=" color: white;"> Preco: </label>
             <input class="form-control" type="number" min="0" id="preco" name="preco" [(ngModel)]="produto.preco"
               required>

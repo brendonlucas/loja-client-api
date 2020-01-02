@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class ProdutosService {
 
   produtosListUrl = "http://127.0.0.1:8000/produtos/"
+  addVendaUrl = "http://127.0.0.1:8000/vendas/"
+
 
   constructor(private http: HttpClient) { }
 
@@ -41,6 +43,11 @@ export class ProdutosService {
   }
   deleteProduto(id:number){
     return this.http.delete(this.produtosListUrl + id + '/delete')
+  }
+
+  postVenda(venda: any, id: any){
+    return this.http.post(this.addVendaUrl + id + "/comprar/", venda)
+
   }
 
   

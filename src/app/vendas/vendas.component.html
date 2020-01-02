@@ -7,7 +7,7 @@
 <div class="box-list list-inline-item box-middle" *ngIf="vendas.length > 0; else elseBlock">
   <li *ngFor="let venda of vendas | paginate: { itemsPerPage: count, currentPage: p }" class="media item-preview "
     style="background-color: #ffffff; width: 100%; min-width: 700px; border-bottom: 1px solid rgb(44, 44, 44); ">
-    <img src="https://images1.kabum.com.br/produtos/fotos/49841/49841_1507735187_index_gg.jpg" alt="" class="mr-3"
+    <img src="{{venda.produto.file}}" alt="" class="mr-3"
       width="150">
     <div class="media-body" style="min-width: 200px;">
       <a routerLink="/produto/detail/{{venda.produto.id}}" style="text-align: left;" href="#">

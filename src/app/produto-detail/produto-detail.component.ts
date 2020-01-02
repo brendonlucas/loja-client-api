@@ -17,6 +17,7 @@ export class ProdutoDetailComponent implements OnInit {
   labelProduto: any;
   dados = localStorage
   router: Router;
+  venda: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +31,7 @@ export class ProdutoDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getProduto();
     this.newDadosProduto = {};
+    this.venda = {};
   }
 
 
@@ -53,6 +55,23 @@ export class ProdutoDetailComponent implements OnInit {
     this.produto.push(resposta)
     });
     this.router.navigate(['/produtos-list']);
+  }
+
+  postVenda(){
+    const id = + this.route.snapshot.paramMap.get('id');
+    console.log(this.venda)
+    this.produtoService.postVenda(this.venda, id).subscribe(
+      success => {
+        console.log(success),
+        document.getElementById('mensagem').innerHTML = "Criado com sucesso";
+      },
+      error => {
+        console.log(error);
+        document.getElementById('mensagem1').innerHTML = error['error']['error'];
+      }
+    )
+
+
   }
 
 
