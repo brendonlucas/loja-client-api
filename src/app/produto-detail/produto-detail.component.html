@@ -4,7 +4,8 @@
     <img src="{{produto.file}}" width="500px" height="auto">
     <div class="box-dados">
       <p style=" color:#45ed27; font-weight: bold; font-size: 40px;"> R${{ produto['preco'] }} </p>
-      <p style="font-size: 22px; color:#45ed27 ;">
+      
+      <p style="font-size: 22px; color:#45ed27 ;" id="qtd-label">
         <img src="https://i.ibb.co/9YBcC2j/icone2.png" width="30" height="30" alt="asda"> {{produto['quantidade']}}
         Unidades
       </p>
@@ -19,6 +20,8 @@
               [disabled]="frmV.invalid || 0 >= frmV.value.quantidade || 0 == produto['quantidade'] || frmV.value.quantidade > produto['quantidade']"
               class="btn btn-lg bt-comp animate-hover" type="submit"> Criar venda</button>
           </div>
+          <p ([ngModel])="mensagem" id="mensagem" style="font-size: 17px; color: rgb(255, 0, 0); font-weight: bold;">{{ mensagem }} </p>
+  
         </form>
         <br>
         <button (click)="deleteProduto()" class="btn btn-primary btn-lg animate-hover"

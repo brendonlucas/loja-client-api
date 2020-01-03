@@ -9,7 +9,12 @@ export class ProdutosService {
 
   produtosListUrl = "http://127.0.0.1:8000/produtos/"
   addVendaUrl = "http://127.0.0.1:8000/vendas/"
+  newProdutosUrl = "http://127.0.0.1:8000/produtos/novos"
 
+  header = {
+    headers: new HttpHeaders()
+      .set('Authorization', "token " + localStorage['currentUserToken'])
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +24,10 @@ export class ProdutosService {
 
   getProduto(id: number): Observable<any> {
     return this.http.get<any[]>(this.produtosListUrl + id + '/');
+  }
+
+  getNewProdutos() {
+    return this.http.get<any[]>(this.newProdutosUrl);
   }
 
   searchProduto(nome_produto: any){
@@ -33,21 +42,21 @@ export class ProdutosService {
     formData.append('preco',produto['preco'])
     formData.append('descricao',produto['descricao'])
     
-    return this.http.post(this.produtosListUrl, formData)
+    return this.http.post(this.produtosListUrl, formData, this.header)
 
 
   }
 
   putProduto(id:number, produto: any){
-    return this.http.put(this.produtosListUrl + id + '/update', produto)
+    return this.http.put(this.produtosListUrl + id + '/update', produto, this.header)
 
   }
   deleteProduto(id:number){
-    return this.http.delete(this.produtosListUrl + id + '/delete')
+    return this.http.delete(this.produtosListUrl + id + '/delete', this.header)
   }
 
   postVenda(venda: any, id: any){
-    return this.http.post(this.addVendaUrl + id + "/comprar/", venda)
+    return this.http.post(this.addVendaUrl + id + "/comprar/", venda, this.header)
 
   }
 

@@ -15,12 +15,7 @@ export class AuthService {
   public token: string;
   private usuarioAutenteicado: boolean = false;
   loginUrl = "http://127.0.0.1:8000/api-token-auth/"
-  public dadosUser: any
-
-
-  
-
-  
+  public dadosUser: any;
 
   constructor(private http: HttpClient, private router: Router) { 
 

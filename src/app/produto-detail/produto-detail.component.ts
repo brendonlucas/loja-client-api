@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { ProdutosService } from '../produtos.service';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
+import { template } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-produto-detail',
