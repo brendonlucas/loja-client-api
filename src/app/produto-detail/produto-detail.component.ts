@@ -45,7 +45,7 @@ export class ProdutoDetailComponent implements OnInit {
   putProduto(frm: FormGroup) {
     const id = + this.route.snapshot.paramMap.get('id');
     this.produtoService.putProduto(id, this.produto).subscribe(resposta => {
-      this.produto.push(resposta)
+      
     });
     
   }
@@ -53,7 +53,7 @@ export class ProdutoDetailComponent implements OnInit {
   deleteProduto(){
     const id = + this.route.snapshot.paramMap.get('id');
     this.produtoService.deleteProduto(id).subscribe(resposta => {
-    this.produto.push(resposta)
+    
     });
     this.router.navigate(['/produtos-list']);
   }

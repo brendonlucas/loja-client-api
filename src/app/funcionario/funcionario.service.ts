@@ -21,11 +21,7 @@ export class FuncionarioService {
 
   postFuncionario(funcionario: any){
     const formData = new FormData();
-    let funcionario_complement: any = {
-      'username': funcionario['username'],
-      'password': funcionario['password'],
-      'email': funcionario['email']
-    }
+
     formData.append('name',funcionario['name'])
     formData.append('cpf', funcionario['telefone'])
     formData.append('telefone', funcionario['telefone'])
@@ -33,6 +29,6 @@ export class FuncionarioService {
     formData.append('password', funcionario['password'])
     formData.append('email', funcionario['email'])
 
-    return this.http.post(this.addfuncionariosUrl, formData)
+    return this.http.post(this.addfuncionariosUrl, formData, this.header)
   }
 }

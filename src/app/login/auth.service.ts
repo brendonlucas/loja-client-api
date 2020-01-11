@@ -19,8 +19,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { 
 
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+    
   }
 
 

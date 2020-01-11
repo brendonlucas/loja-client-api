@@ -15,6 +15,7 @@
    }
 
    .item-card{
+       max-width: 300px;
     background-color: #ffffff; width: 100%; min-width: 700px; border-bottom: 1px solid rgb(44, 44, 44); 
     margin-bottom:10px ;
     -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);

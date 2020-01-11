@@ -15,7 +15,7 @@
 
 
         <li class="list-inline-item card-produto" *ngFor="let produto of produtos">
-            <img src="{{produto.file}}" width="184px" height="auto" alt="Card image cap">
+            <img src="{{produto.file}}" width="184px" height="180px" alt="Card image cap">
             <div class="">
                 <a routerLink="/produto/detail/{{produto['pk']}}">
                     <h5 class="card-title">{{produto.name}}</h5>
