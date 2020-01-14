@@ -1,4 +1,19 @@
 # LojaClientApi
+<h1>  O que é? </h1>
+<p> É uma aplicação de uma loja que possue produtos é funcionários. Os funcionários cadastrados poderão fazer oq registros das vendas realizadas. </p>
+<p>  A aplicação é utilizada por usuários/ clientes para verificarem a disponibilidade de produtos na loja física e para os funcionários poderem registrar as vendas realizadas, editarem e remover os produtos, adicionar produtos e funcionários 
+</p>
+
+
+
+<h2> Codigo da API: </h2>
+
+<a href="https://github.com/brendonlucas/Api-loja" >https://github.com/brendonlucas/Api-loja <a/>
+
+<h2> Vídeo explicação  </h2>
+<a href="https://youtu.be/Kd55ZagD6ko" > https://youtu.be/Kd55ZagD6ko </a>
+
+<h1> Angular </h1>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
